@@ -19,10 +19,10 @@
 </head>
 <body>
   <nav class="navigation">
-    <a href="index.php">Hem</a>
-    <a href="admin/index.php">Admin</a>
-    <a href="admin/create.php">Create</a>
-    <a href="admin/update.php">Update</a>
-    <a href="admin/delete.php">Delete</a>
+    <a href="../index.php">Hem</a>
+    <a href="/index.php">Admin</a>
+    <a href="/create.php">Create</a>
+    <a href="/update.php">Update</a>
+    <a href="/delete.php">Delete</a>
   </nav>
   <main class="container">
