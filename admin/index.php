@@ -16,5 +16,6 @@ include_once '../header-admin.php';
 
 <?php 
 include_once '../read.php';
+include_once 'create.php';
 include_once '../footer.php'; 
 ?>
