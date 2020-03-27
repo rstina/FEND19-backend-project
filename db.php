@@ -1,5 +1,11 @@
 <?php 
-
+/**************************************** *
+ * filename: db.php
+ * author: Stina Englesson & Jing-Jing Lin
+ * date 2020-03-27
+ * 
+ * connect to database and server
+**************************************** */
 
 $db_server   = "localhost"; // adress till dator server
 $db_database = "blog_db"; // ändras alltid
