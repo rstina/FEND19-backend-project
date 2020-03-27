@@ -6,22 +6,30 @@
  * 
  * read info from db
 **************************************** */
+  // koppla till databas
+  require_once 'db.php';
+  // förbered SQL-förfrågning
+  $stmt = $db->prepare("SELECT * FROM blog");
+  // verkställ
+  $stmt->execute();
 
-      // hämta alla inlägg
-      require_once 'db.php';
-      $stmt = $db->prepare("SELECT * FROM blog");
-      $stmt->execute();
+  // starta div för inlägg
+  echo "<div class='row'>";
 
-      echo "<div class='row'>";
-
-      while($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
-        $id = htmlspecialchars($row['id']);
-        $content = htmlspecialchars($row['content']);
+  // loopar över arrayen som har resultatet från db
+  while($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
+    // spara id från db i en variabel
+    $id = htmlspecialchars($row['id']); // $row = array
+    // spara innehåll från db i en variabel
+    $content = htmlspecialchars($row['content']);
 ?>
 
 <div class="col-md-3">
   <p>
-    <?php echo $content; ?>
+    <?php 
+      // 
+      echo $content; 
+    ?>
   </p>
 </div>
 
