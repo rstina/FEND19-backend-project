@@ -12,8 +12,6 @@ include_once 'header.php';
 
 ?>
 
-<h2>Include blog here</h2>
-
 <?php 
 include_once 'read.php';
 include_once 'footer.php'; 
