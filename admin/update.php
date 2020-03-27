@@ -6,4 +6,12 @@
  * 
  * update blog-post
 **************************************** */
+
+include_once '../header-admin.php';
+?>
+
+<h1>Uppdateras blogginlägg</h1>
+
+<?php
+  include_once '../footer.php';
 ?>

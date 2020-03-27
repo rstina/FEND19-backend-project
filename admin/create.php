@@ -7,9 +7,8 @@
  * create blog-post
 **************************************** */
 
-  include_once '../header.php';
+  include_once '../header-admin.php';
 ?>
-
 
 <h1>Skapa blogginlägg</h1>
 
