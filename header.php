@@ -18,11 +18,22 @@
   <title>Blog</title>
 </head>
 <body>
-  <nav class="navigation">
-    <a href="index.php">Hem</a>
-    <a href="admin/index.php">Admin</a>
-    <a href="admin/create.php">Create</a>
-    <a href="admin/update.php">Update</a>
-    <a href="admin/delete.php">Delete</a>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+    <a class="navbar-brand" href="index.php">Blogg</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">Hem</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../FEND19-backend-project/admin/index.php">Admin</a>
+        </li>
+      </ul>
+    </div>
   </nav>
+
   <main class="container">
