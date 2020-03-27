@@ -2,7 +2,7 @@
 
 
 $db_server   = "localhost"; // adress till dator server
-$db_database = "contactsdb"; // ändras alltid
+$db_database = "blog_db"; // ändras alltid
 $db_username = "root"; // ändras alltid
 $db_password = "root"; // ändras alltid
 
