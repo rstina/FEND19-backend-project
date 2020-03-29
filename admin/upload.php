@@ -48,6 +48,7 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        echo "<img src='../images/$target_file' alt='' width='200px'><br>";
         echo " Filen ". basename( $_FILES["fileToUpload"]["name"]). " har laddats upp.<br>";
     } else {
         echo "Tyvärr, det blev något fel vid uppladdning av fil.<br>";
