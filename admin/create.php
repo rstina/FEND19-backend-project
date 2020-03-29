@@ -12,7 +12,11 @@
 
 <h1>Skapa blogginlägg</h1>
 
-<form action="#" method="post" class="row">
+<form   action="upload.php"       
+        enctype="multipart/form-data"  
+        method="post" 
+        class="row">
+
         <div class="col-md-12 form-group">
             <input name="heading" type="text" required
             class="form-control" placeholder="Rubrik">
@@ -24,21 +28,29 @@
         </div>
 
         <div class="col-md-12 form-group">
-            <input name="map" type="text" required
+            <input name="map" type="text" 
             class="form-control" placeholder="Klistra in länken till karta">
         </div>   
         
         <br>
         <div class="col-md-12 form-group">
-            <input name="video" type="text" required
+            <input name="video" type="text" 
             class="form-control" placeholder="Klistra in länken till video">
         </div>  
         
-        <br>
+        <!-- <br>
         <div class="col-md-12 form-group">
             <input name="video" type="text" required
             class="form-control" placeholder="Ladda upp bild">
-        </div>  
+        </div>   -->
+
+        <br>
+        <div class="col-md-12 form-group">
+        <input  type="file" 
+                name="fileToUpload" 
+                id="fileToUpload" 
+                class="form-control"> <!-- type="file" ger en file-select knapp i input -->
+        </div>
 
         <div class="col-md-12 form-group">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" name="publish"

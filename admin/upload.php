@@ -1,0 +1,64 @@
+<?php
+
+include_once '../header-admin.php';
+
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+echo basename( $_FILES["fileToUpload"]["name"])."<br><br>";
+
+$target_dir = "../images/";
+
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if($check !== false) {
+        // echo "Det här är en bild - " . $check["mime"] . ".<br>";
+        echo "<img src='../images/$target_file' alt='' width='200px'><br>";
+        $uploadOk = 1;
+    } else {
+        echo "Det här är ingen bild.<br>";
+        $uploadOk = 0;
+    }
+}
+
+// Check if file already exists
+if (file_exists($target_file)) {
+    echo "Tyvärr, den här filen finns redan.<br>";
+    $uploadOk = 0;
+}
+// Check file size
+if ($_FILES["fileToUpload"]["size"] > 500000) {
+    echo "Tyvärr, filen är för stor.<br>";
+    $uploadOk = 0;
+}
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+    echo "Tyvärr, bara JPG, JPEG, PNG & GIF är tillåtna filformat.<br>";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    echo "Tyvärr, filen gick inte att ladda upp.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        echo " Filen ". basename( $_FILES["fileToUpload"]["name"]). " har laddats upp.<br>";
+    } else {
+        echo "Tyvärr, det blev något fel vid uppladdning av fil.<br>";
+    }
+}
+?>
+<br><br>
+<a href="index.php">Till adminsidan</a>
+<br><br>
+<a href="../index.php">Till bloggen</a>
+
+<?php
+include_once '../footer.php';
+?>

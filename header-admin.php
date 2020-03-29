@@ -18,7 +18,7 @@
   <title>Blogg - Admin</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-info sticky-top">
+  <nav class="navbar navbar-expand-md navbar-dark bg-info sticky-top">
     <a class="navbar-brand" href="../index.php">Blogg</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,10 +29,10 @@
           <a class="nav-link" href="../index.php">Hem</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../FEND19-backend-project/admin/index.php">Admin</a>
+          <a class="nav-link" href="../../FEND19-backend-project/admin/index.php">Administrera</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../FEND19-backend-project/admin/create.php">Skapa inlägg</a>
+          <a class="nav-link" href="../../FEND19-backend-project/admin/create.php">Skapa</a>
         </li>
       </ul>
     </div>
