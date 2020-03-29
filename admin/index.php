@@ -12,7 +12,7 @@ include_once '../header-admin.php';
 
 ?>
 
-<h2>All blog posts</h2>
+<h2>Administrera blogginlägg</h2>
 
 <?php 
 include_once '../read.php';
