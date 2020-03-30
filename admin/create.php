@@ -89,11 +89,11 @@ endif;
         </div>
 
         <div class="col-md-12 form-group">
-            <input  type="checkbox" 
-                    class="form-check-input" id="exampleCheck1" name="publish"
-            checked>
-            <label class="form-check-label" for="publish">Publicera</label>
-          </div>
+       <input type="radio" id="publish" name="publish" value="publish">
+       <label for="publish">Publicera</label><br>
+       <input type="radio" id="publish" name="publish" value="publish">
+       <label for="publish">Avpublicera</label><br>
+       </div>
 
         <div class="col-md-12 form-group">
             <input  type="submit" 
