@@ -43,7 +43,7 @@
           <p>$date</p>
       </div>
       </div>
-      <a href='edit.php?id=$id' class='btn btn-sm btn-info'>Redigera</a>
+      <a href='update.php?id=$id' class='btn btn-sm btn-info'>Redigera</a>
       <a href='delete.php?id=$id' class='btn btn-sm btn-warning'>Ta bort</a>
     </div>
     <br>

@@ -6,9 +6,6 @@
  * 
  * delete blog-post
 **************************************** */
-
-include_once '../header-admin.php';
-
 require_once '../db.php';
 
 if(isset($_GET['id'])){
@@ -22,13 +19,3 @@ if(isset($_GET['id'])){
 }
 
 header('Location:index.php');
-
-
-
-?>
-
-<h1>Radera blogginlägg</h1>
-
-<?php
-  include_once '../footer.php';
-?>

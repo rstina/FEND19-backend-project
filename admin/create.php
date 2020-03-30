@@ -7,42 +7,6 @@
  * create blog-post
 **************************************** */
   include_once '../header-admin.php';
-
-/*
-  if ($_SERVER['REQUEST_METHOD'] === 'POST'):
-    // Testa att skriva ut data som finns i POST-arrayen
-    print_r($_POST);
-    
-    // Lägg till htmlspecialchars för att rensa HTML
-    $heading = htmlspecialchars($_POST['heading']);
-    $content = htmlspecialchars($_POST['content']);
-    $map = htmlspecialchars($_POST['map']);
-    $video = htmlspecialchars($_POST['video']);
-    $image = htmlspecialchars($_POST['image']);
-    $publish = htmlspecialchars($_POST['publish']);
-
-    // Logga in i databasen
-    require_once '../db.php';
-
-    // Förbered en SQL-sats
-    $sql = "INSERT INTO blog (heading,content,image,map, video,publish) 
-            VALUES ( :heading, :content,:image, :map, :video, :publish)";
-    $stmt = $db->prepare($sql);
-
-    // Binda variabler till params, som finns i VALUES
-    $stmt->bindParam(':heading' , $heading);
-    $stmt->bindParam(':content' , $content);
-    $stmt->bindParam(':map' , $map);
-    $stmt->bindParam(':video' , $video);
-    $stmt->bindParam(':image' , $image);
-    $stmt->bindParam(':publish' , $publish);
-
-
-    // Skicka SQL till databasen
-    $stmt->execute();
-
-endif;
-*/
 ?>
 
 <h1>Skapa blogginlägg</h1>
@@ -84,7 +48,7 @@ endif;
         <div class="col-md-12 form-group">
        <input type="radio" id="publish" name="publish" value="publish">
        <label for="publish">Publicera</label><br>
-       <input type="radio" id="publish" name="publish" value="publish">
+       <input type="radio" id="unpublish" name="publish" value="unpublish">
        <label for="publish">Avpublicera</label><br>
        </div>
 
