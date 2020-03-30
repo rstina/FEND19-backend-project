@@ -72,13 +72,6 @@ endif;
             <input name="video" type="text" 
             class="form-control" placeholder="Klistra in länken till video">
         </div>  
-        
-        <!-- <br>
-        <div class="col-md-12 form-group">
-            <input name="video" type="text" required
-            class="form-control" placeholder="Ladda upp bild">
-        </div>   -->
-
             
         <br>
         <div class="col-md-12 form-group">
