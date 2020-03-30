@@ -9,36 +9,6 @@
 
   include_once '../header-admin.php';
 
-  if ($_SERVER['REQUEST_METHOD'] === 'POST'):
-    // Testa att skriva ut data som finns i POST-arrayen
-    // print_r($_POST);
-    
-    // Lägg till htmlspecialchars för att rensa HTML
-    $heading = htmlspecialchars($_POST['heading']);
-    $content = htmlspecialchars($_POST['content']);
-    $map = htmlspecialchars($_POST['map']);
-    $video = htmlspecialchars($_POST['video']);
-
-    // Logga in i databasen
-    require_once 'db.php';
-
-    // Förbered en SQL-sats
-    $sql = "INSERT INTO blog (heading,content,map, video) 
-            VALUES ( :heading, :content, :map, :video)";
-    $stmt = $db->prepare($sql);
-
-    // Binda variabler till params, som finns i VALUES
-    $stmt->bindParam(':heading' , $heading);
-    $stmt->bindParam(':content' , $content);
-    $stmt->bindParam(':map' , $map);
-    $stmt->bindParam(':video' , $video);
-
-
-    // Skicka SQL till databasen
-    $stmt->execute();
-
-endif;
-
 ?>
 
 <h1>Skapa blogginlägg</h1>
