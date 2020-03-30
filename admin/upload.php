@@ -3,10 +3,6 @@
 require_once '../header-admin.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'):
-  // Testa att skriva ut data som finns i POST-arrayen
-    echo "<pre>";
-        print_r($_POST);
-echo "</pre>";
   
   // Lägg till htmlspecialchars för att rensa HTML
   $heading = htmlspecialchars($_POST['heading']);
@@ -38,14 +34,23 @@ echo "</pre>";
 
 endif;
 
-
-echo basename( $_FILES["image"]["name"])."<br><br>";
-
 $target_dir = "../images/";
 
 $target_file = $target_dir . basename($_FILES["image"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+echo "<br>
+<div class='card'>
+<div class='card-body'>
+  <h2>$heading</h2>
+  <img src='../images/$target_file' alt='$image' width='200px'>
+  <p>$content</p>
+  $map
+  <p>$video</p>
+</div>
+</div>
+<br>";
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
@@ -88,19 +93,6 @@ if ($uploadOk == 0) {
     }
 }
 
-?>
-<?php
-echo "
-<div class='card'>
-<div class='card-body'>
-  <h2>$heading</h2>
-  <img src='../images/$target_file' alt='$image' width='200px'>
-  <p>$content</p>
-  $map
-  <p>$video</p>
-</div>
-</div>
-<br>";
 ?>
 <br><br>
 <a href="index.php">Till adminsidan</a>

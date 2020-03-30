@@ -46,10 +46,10 @@
         </div>
 
         <div class="col-md-12 form-group">
-       <input type="radio" id="publish" name="publish" value="publish">
-       <label for="publish">Publicera</label><br>
+       <input type="radio" id="publish" name="publish" value="publish" checked>
+       <label for="publish">Publicera inlägg</label><br>
        <input type="radio" id="unpublish" name="publish" value="unpublish">
-       <label for="publish">Avpublicera</label><br>
+       <label for="publish">Spara inlägg, publicera senare</label><br>
        </div>
 
         <div class="col-md-12 form-group">

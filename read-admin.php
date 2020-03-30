@@ -26,7 +26,7 @@
     $date = htmlspecialchars($row['date']);
     $map = $row['map'];
     $video = htmlspecialchars($row['video']);
-    // $publish = htmlspecialchars($row['publish']);
+    $publish = htmlspecialchars($row['publish']);
 
       // skriv ut content
       // OBS! ÄNDRA KARTAN TILL DE SOM HAR DET INLAGT
@@ -35,6 +35,8 @@
       <div class='card'>
 
       <div class='card-body'>
+      <p>$publish</p>
+
         <h2>$heading</h2>
           <img src='../images/$image' alt='$image' width='200px'>
           <p>$content</p>

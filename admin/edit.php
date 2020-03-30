@@ -20,7 +20,6 @@
   $image = htmlspecialchars($row['image']);
   $publish = htmlspecialchars($row['publish']);
 
-
 ?>
   
   <h1>Uppdatera blogginlägg</h1>
@@ -37,7 +36,7 @@
       
         <div class="col-md-12 form-group">
             <textarea name="content" cols="30" rows="5" required
-            class="form-control" placeholder="Skriv ett inlägg" value="<?php echo $content ?>"></textarea>
+            class="form-control" placeholder="Skriv ett inlägg" value=""><?php echo $content ?></textarea>
         </div>
 
         <div class="col-md-12 form-group">
@@ -62,13 +61,13 @@
         
         </div>
 
-
+<!-- 
         <div class="col-md-12 form-group">
        <input type="radio" id="publish" name="publish" value="<?php echo $publish ?>">
        <label for="publish">Publicera</label><br>
        <input type="radio" id="publish" name="publish" value="<?php echo $publish ?>">
        <label for="publish">Avpublicera</label><br>
-       </div>
+       </div> -->
 
 
         <div class="col-md-12 form-group">
