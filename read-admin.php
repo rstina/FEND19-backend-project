@@ -56,4 +56,3 @@
 // stäng post div
   echo "</div>";
 ?>
-<button></button>
