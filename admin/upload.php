@@ -1,60 +1,52 @@
 <?php
 
-require_once '../header-admin.php';
+include_once '../header-admin.php';
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'):
+    // Testa att skriva ut data som finns i POST-arrayen
+    // print_r($_POST);
+    
+    // Lägg till htmlspecialchars för att rensa HTML
+    $heading = htmlspecialchars($_POST['heading']);
+    $content = htmlspecialchars($_POST['content']);
+    $map = htmlspecialchars($_POST['map']);
+    $video = htmlspecialchars($_POST['video']);
+
+    // Logga in i databasen
+    require_once '../db.php';
+
+    // Förbered en SQL-sats
+    $sql = "INSERT INTO blog (heading,content,map, video) 
+            VALUES ( :heading, :content, :map, :video)";
+    $stmt = $db->prepare($sql);
+
+    // Binda variabler till params, som finns i VALUES
+    $stmt->bindParam(':heading' , $heading);
+    $stmt->bindParam(':content' , $content);
+    $stmt->bindParam(':map' , $map);
+    $stmt->bindParam(':video' , $video);
+
+
+    // Skicka SQL till databasen
+    $stmt->execute();
+
+endif;
 
 echo "<pre>";
 print_r($_POST);
 echo "</pre>";
-
-
-include_once '../header-admin.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST'):
-  // Testa att skriva ut data som finns i POST-arrayen
-  print_r($_POST);
-  
-  // Lägg till htmlspecialchars för att rensa HTML
-  $heading = htmlspecialchars($_POST['heading']);
-  $content = htmlspecialchars($_POST['content']);
-  $map = htmlspecialchars($_POST['map']);
-  $video = htmlspecialchars($_POST['video']);
-  $image = htmlspecialchars(basename( $_FILES["image"]["name"]));
-  $publish = htmlspecialchars($_POST['publish']);
-
-  // Logga in i databasen
-  require_once '../db.php';
-
-  // Förbered en SQL-sats
-  $sql = "INSERT INTO blog (heading,content,image,map, video,publish) 
-          VALUES ( :heading, :content,:image, :map, :video, :publish)";
-  $stmt = $db->prepare($sql);
-
-  // Binda variabler till params, som finns i VALUES
-  $stmt->bindParam(':heading' , $heading);
-  $stmt->bindParam(':content' , $content);
-  $stmt->bindParam(':map' , $map);
-  $stmt->bindParam(':video' , $video);
-  $stmt->bindParam(':image' , $image);
-  $stmt->bindParam(':publish' , $publish);
-
-
-  // Skicka SQL till databasen
-  $stmt->execute();
-
-endif;
-
-
-echo basename( $_FILES["image"]["name"])."<br><br>";
+echo basename( $_FILES["fileToUpload"]["name"])."<br><br>";
 
 $target_dir = "../images/";
 
-$target_file = $target_dir . basename($_FILES["image"]["name"]);
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["image"]["tmp_name"]);
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
         // echo "Det här är en bild - " . $check["mime"] . ".<br>";
         echo "<img src='../images/$target_file' alt='' width='200px'><br>";
@@ -71,7 +63,7 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }
 // Check file size
-if ($_FILES["image"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 500000) {
     echo "Tyvärr, filen är för stor.<br>";
     $uploadOk = 0;
 }
@@ -86,27 +78,13 @@ if ($uploadOk == 0) {
     echo "Tyvärr, filen gick inte att ladda upp.";
 // if everything is ok, try to upload file
 } else {
-    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-        echo " Bilden ". basename( $_FILES["image"]["name"]). " har laddats upp.<br>";
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        echo "<img src='../images/$target_file' alt='' width='200px'><br>";
+        echo " Filen ". basename( $_FILES["fileToUpload"]["name"]). " har laddats upp.<br>";
     } else {
         echo "Tyvärr, det blev något fel vid uppladdning av fil.<br>";
     }
 }
-
-?>
-<?php
-echo "
-<div class='card'>
-<div class='card-body'>
-  <h2>$heading</h2>
-  <img src='../images/$target_file' alt='$image' width='200px'>
-  <p>$content</p>
-  $map
-  <p>$video</p>
-  <p>$date</p>
-</div>
-</div>
-<br>";
 ?>
 <br><br>
 <a href="index.php">Till adminsidan</a>
