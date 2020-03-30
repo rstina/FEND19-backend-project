@@ -48,7 +48,7 @@
         <div class="col-md-12 form-group">
        <input type="radio" id="publish" name="publish" value="publish">
        <label for="publish">Publicera</label><br>
-       <input type="radio" id="publish" name="publish" value="publish">
+       <input type="radio" id="unpublish" name="publish" value="unpublish">
        <label for="publish">Avpublicera</label><br>
        </div>
 
