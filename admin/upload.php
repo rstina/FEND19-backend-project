@@ -2,16 +2,11 @@
 
 require_once '../header-admin.php';
 
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-
-
-include_once '../header-admin.php';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST'):
   // Testa att skriva ut data som finns i POST-arrayen
-  print_r($_POST);
+    echo "<pre>";
+        print_r($_POST);
+echo "</pre>";
   
   // Lägg till htmlspecialchars för att rensa HTML
   $heading = htmlspecialchars($_POST['heading']);
@@ -103,7 +98,6 @@ echo "
   <p>$content</p>
   $map
   <p>$video</p>
-  <p>$date</p>
 </div>
 </div>
 <br>";

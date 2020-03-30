@@ -15,6 +15,6 @@ include_once '../header-admin.php';
 <h2>Administrera blogginlägg</h2>
 
 <?php 
-include_once '../read.php';
+include_once '../read-admin.php';
 include_once '../footer.php'; 
 ?>

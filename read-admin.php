@@ -31,15 +31,20 @@
       // skriv ut content
       // OBS! ÄNDRA KARTAN TILL DE SOM HAR DET INLAGT
     echo "<br>
-    <div class='card'>
+    <div>
+      <div class='card'>
+
       <div class='card-body'>
         <h2>$heading</h2>
-        <img src='images/$image' alt='$image' width='200px'>
-        <p>$content</p>
-        $map
-        <p>$video</p>
-        <p>$date</p>
+          <img src='../images/$image' alt='$image' width='200px'>
+          <p>$content</p>
+          $map
+          <p>$video</p>
+          <p>$date</p>
       </div>
+      </div>
+      <a href='edit.php?id=$id' class='btn btn-sm btn-info'>Redigera</a>
+      <a href='delete.php?id=$id' class='btn btn-sm btn-warning'>Ta bort</a>
     </div>
     <br>
     "; 
@@ -50,3 +55,5 @@
   endwhile;
 // stäng post div
   echo "</div>";
+?>
+<button></button>
