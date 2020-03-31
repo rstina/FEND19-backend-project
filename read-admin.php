@@ -38,7 +38,7 @@
       $unpublish = '<p><a href="unpublish-update.php?id='.$id.'" class="btn btn-sm btn-danger">Avpublicera</a>';
     } else {
       $publishtext = "Opublicerad";
-      $unpublish = '<a href="publish-update.php?id=$id" class="btn btn-sm btn-success">Publicera</a>';
+      $unpublish = '<a href="publish-update.php?id='.$id.'" class="btn btn-sm btn-success">Publicera</a>';
     }
     // echo "<pre>";
     // print_r($row);
