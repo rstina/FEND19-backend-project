@@ -27,6 +27,8 @@
       $map = $row['map'];
       $video = ($row['video']);
 
+      // replace line break ad p-tag
+      $content_replace_br =  str_replace("\n","<p/><p>",$content);      
 
       if(!empty($video)){
         $videotext = $video;
@@ -49,7 +51,7 @@
           <div class='card-body'>
             <h2>$heading</h2>
             <img src='images/$image' alt='$image' width='200px'>
-            <p>$content</p>
+            <p>$content_replace_br</p>
             <p>$videotext</p>
             <p>$maptext</p>
             <p>$date</p>

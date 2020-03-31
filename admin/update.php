@@ -3,7 +3,7 @@ require_once '../db.php';
 
 $id = htmlentities($_GET['id']);
 $heading = htmlspecialchars($_POST['heading']);
-$content = htmlentities($_POST['content']);
+$content = htmlspecialchars($_POST['content']);
 $map = ($_POST['map']);
 $video = ($_POST['video']);
 $image = htmlspecialchars(basename( $_FILES["image"]["name"]));

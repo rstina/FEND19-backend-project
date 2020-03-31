@@ -27,9 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'):
   $stmt->bindParam(':image' , $image);
   $stmt->bindParam(':publish' , $publish);
 
-
   // Skicka SQL till databasen
   $stmt->execute();
+
+  // replace line break ad p-tag
+  $content_replace_br =  str_replace("\n","<p/><p>",$content);
 
 endif;
 
@@ -45,7 +47,7 @@ echo "<br>
     <p class='text-muted'>$publish</p>
   <h2>$heading</h2>
   <img src='../images/$target_file' alt='$image' width='200px'>
-  <p>$content</p>
+  <p>$content_replace_br</p>
   $map
   <p>$video</p>
 </div>
