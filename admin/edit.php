@@ -15,8 +15,8 @@
 
   $heading = htmlspecialchars($row['heading']);
   $content = htmlspecialchars($row['content']);
-  $map = htmlspecialchars($row['map']);
-  $video = htmlspecialchars($row['video']);
+  $map = ($row['map']);
+  $video = ($row['video']);
   $image = htmlspecialchars($row['image']);
 //   //$publish = htmlspecialchars($row['publish']);
 //   echo "<pre>";

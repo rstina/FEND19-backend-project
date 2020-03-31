@@ -5,8 +5,8 @@ include_once '../db.php';
 $id = htmlentities($_GET['id']);
 $heading = htmlspecialchars($_POST['heading']);
 $content = htmlspecialchars($_POST['content']);
-$map = htmlspecialchars($_POST['map']);
-$video = htmlspecialchars($_POST['video']);
+$map = ($_POST['map']);
+$video = ($_POST['video']);
 $image = htmlspecialchars(basename( $_FILES["image"]["name"]));
 // $publish = htmlspecialchars($_POST['publish']);
 

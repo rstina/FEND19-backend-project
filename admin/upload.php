@@ -10,8 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'):
   $heading = htmlspecialchars($_POST['heading']);
   $image = htmlspecialchars(basename( $_FILES["image"]["name"]));
   $content = htmlspecialchars($_POST['content']);
-  $map = htmlentities($_POST['map']);
-  $video = htmlspecialchars($_POST['video']);
+  $map = ($_POST['map']);
+  $video = ($_POST['video']);
   $publish = htmlspecialchars($_POST['publish']);
   if( $publish == 'publish' ){
     $publish = "Publicerat";

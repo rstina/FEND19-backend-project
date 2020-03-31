@@ -25,13 +25,23 @@
     $content = htmlspecialchars($row['content']);
     $date = htmlspecialchars($row['date']);
     $map = $row['map'];
-    $video = htmlspecialchars($row['video']);
-    $publish = htmlspecialchars($row['publish']);
-    if( $publish == 'publish' ){
-      $publish = "Publicerad";
+    $video = ($row['video']);
+
+    if(!empty($video)){
+      $videotext = '<iframe width="560" height="315" src="'.$video.'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     } else {
-      $publish = "Opublicerad";
+      $videotext = '';
     }
+
+    $publish = ($row['publish']);
+    if( $publish == 'publish' ){
+      $publishtext = "Publicerad";
+    } else {
+      $publishtext = "Opublicerad";
+    }
+    // echo "<pre>";
+    // print_r($row);
+    // echo "</pre>";
 
       // skriv ut content
       // OBS! ÄNDRA KARTAN TILL DE SOM HAR DET INLAGT
@@ -39,12 +49,11 @@
     <div>
       <div class='card'>
         <div class='card-body'>
-          <p class='text-muted'>$publish</p>
+          <p class='text-muted'>$publishtext</p>
           <h2>$heading</h2>
           <img src='../images/$image' alt='$image' width='200px'>
           <p>$content</p>
-          $map
-          <p>$video</p>
+          $videotext
           <p>$date</p>
           <a href='edit.php?id=$id' class='btn btn-sm btn-info'>Redigera</a>
           <a href='delete.php?id=$id' class='btn btn-sm btn-warning'>Ta bort</a>
@@ -52,7 +61,7 @@
       </div>
     </div>
     "; 
-
+    https://www.youtube.com/embed/Lw6MFUbvHog" 
     // map: <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8138.025369269233!2d18.0585157!3d59.3411953!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2ac59352bbc3fc9a!2sW%C3%A4ng%20Izakaya!5e0!3m2!1ssv!2sse!4v1585325364041!5m2!1ssv!2sse" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
   // avsluta while loop
