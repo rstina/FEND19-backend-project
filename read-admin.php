@@ -66,7 +66,7 @@
           <p>$maptext</p>
           <p>$date</p>
           <a href='edit.php?id=$id' class='btn btn-sm btn-info'>Redigera</a>
-          <a href='delete.php?id=$id' class='btn btn-sm btn-warning'>Ta bort</a>
+          <a onclick=\"return confirm('Är du säker att du vill radera inlägget?')\" href='delete.php?id=$id' class='btn btn-sm btn-warning'>Ta bort</a>
         </div>
       </div>
     </div>
