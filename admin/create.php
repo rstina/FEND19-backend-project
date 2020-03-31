@@ -28,13 +28,13 @@
 
     <div class="col-md-12 form-group">
         <input name="map" type="text" 
-        class="form-control" placeholder="Klistra in länken till karta">
+        class="form-control" placeholder="Bädda in en karta">
     </div>   
         
     <br>
     <div class="col-md-12 form-group">
         <input name="video" type="text" 
-        class="form-control" placeholder="Klistra in länken till video">
+        class="form-control" placeholder="Bädda in en video">
     </div>  
             
     <br>
