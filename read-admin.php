@@ -4,7 +4,7 @@
  * author: Stina Englesson & Jing-Jing Lin
  * date 2020-03-27
  * 
- * read info from db
+ * read info from db & display posts with editing abilities
 **************************************** */
 
   // koppla till databas

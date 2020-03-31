@@ -1,4 +1,11 @@
 <?php
+/**************************************** *
+ * filename: upload.php
+ * author: Stina Englesson & Jing-Jing Lin
+ * date 2020-03-27
+ * 
+ * add post to db, show user new post
+**************************************** */
 
   require_once '../header-admin.php';
   // Logga in i databasen
@@ -13,6 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'):
   $map = ($_POST['map']);
   $video = ($_POST['video']);
   $publish = htmlspecialchars($_POST['publish']);
+  if( $publish == 'publish' ){
+    $publishtext = "Publicerad";
+  } else {
+    $publishtext = "Opublicerad";
+  }
 
   // Förbered en SQL-sats
   $sql = "INSERT INTO blog (heading,content,image,map, video,publish) 
@@ -30,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'):
   // Skicka SQL till databasen
   $stmt->execute();
 
-  // replace line break ad p-tag
+  // byt ut radbrytningar till p-taggar
   $content_replace_br =  str_replace("\n","<p/><p>",$content);
 
 endif;
@@ -44,7 +56,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 echo "<br>
 <div class='card'>
 <div class='card-body'>
-    <p class='text-muted'>$publish</p>
+    <p class='text-muted'>$publishtext</p>
   <h2>$heading</h2>
   <img src='../images/$target_file' alt='$image' width='200px'>
   <p>$content_replace_br</p>

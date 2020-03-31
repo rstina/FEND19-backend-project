@@ -1,5 +1,12 @@
 <?php
-include_once '../db.php';
+/**************************************** *
+ * filename: unpublish-update.php
+ * author: Stina Englesson & Jing-Jing Lin
+ * date 2020-03-27
+ * 
+ * update publish status in db
+**************************************** */
+require_once '../db.php';
 
 $id = htmlentities($_GET['id']);
 $publish = "unpublish";

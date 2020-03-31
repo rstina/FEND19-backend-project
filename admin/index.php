@@ -7,14 +7,14 @@
  * landing page for admin
 **************************************** */
 
-include_once '../db.php';
-include_once '../header-admin.php';
+require_once '../db.php';
+require_once '../header-admin.php';
 
 ?>
 
-<h2>Administrera blogginlägg</h2>
+<h1>Administrera blogginlägg</h1>
 
 <?php 
-include_once '../read-admin.php';
-include_once '../footer.php'; 
+require_once '../read-admin.php';
+require_once '../footer.php'; 
 ?>

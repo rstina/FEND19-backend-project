@@ -1,4 +1,11 @@
 <?php
+/**************************************** *
+ * filename: edit.php
+ * author: Stina Englesson & Jing-Jing Lin
+ * date 2020-03-27
+ * 
+ * update post info db
+**************************************** */
   require_once '../db.php';
   require_once '../header-admin.php';
 
@@ -12,27 +19,36 @@
   $stmt->execute();
   
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
   $heading = htmlspecialchars($row['heading']);
   $content = htmlentities($row['content']);
   $map = ($row['map']);
   $video = ($row['video']);
   $image = htmlspecialchars($row['image']);
-//   //$publish = htmlspecialchars($row['publish']);
-//   echo "<pre>";
-//   print_r($row);
-//   echo "</pre>";
+
+  // kollar om det redan finns en bild inlaggd, visar bild
 if(empty($image)){
+    // skriv ut rubrik
     echo "<h1>Uppdatera blogginlägg</h1>";
+    $addImage = '
+    <div class="col-md-12 form-group">
+    <label for="image">Välj bild</label>
+        <input  type="file" 
+                name="image" 
+                id="fileToUpload" 
+                class="form-control"> 
+    </div>';
 } else {
+    // skriv ut rubrik och visa bild med knappar
     echo "<h1>Uppdatera blogginlägg</h1>
     <img src='../images/$image' alt='' width='200px'><br>";
+    $addImage = '';
+    $updateImage = '<p><a href="update-image.php?id='.$id.'" class="btn btn-sm btn-warning">Byt bild</a>';
+    $deleteImage = '<p><a href="update-image.php?id='.$id.'" class="btn btn-sm btn-danger">Radera bild</a>';
+    echo $updateImage;
+    echo $deleteImage;
 }
 
-
-
 ?>
-
 <form   action="update.php?id=<?php echo $id;?>"       
         enctype="multipart/form-data"  
         accept-charset="UTF-800"
@@ -75,23 +91,7 @@ if(empty($image)){
                 value='<?php echo $video ?>'>
     </div>
     
-    <br>
-    <div class="col-md-12 form-group">
-        <input  type="file" 
-                    name="image" 
-                    id="fileToUpload" 
-                    class="form-control"> <!-- type="file" ger en file-select knapp i input -->
-    </div>
-
-    
-
-<!--    <div class="col-md-12 form-group">
-       <input type="radio" id="publish" name="publish" value="<?php echo $publish ?>">
-       <label for="publish">Publicera</label><br>
-       <input type="radio" id="publish" name="publish" value="<?php echo $publish ?>">
-       <label for="publish">Avpublicera</label><br>
-       </div> -->
-
+    <?php echo $addImage; ?>
 
     <div class="col-md-12 form-group">
         <input  type="submit" 

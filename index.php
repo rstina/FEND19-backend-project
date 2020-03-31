@@ -7,8 +7,11 @@
  * landing page for user
 **************************************** */
 
-include_once 'db.php';
-include_once 'header.php';
-include_once 'read.php';
-include_once 'footer.php'; 
+require_once 'db.php';
+require_once 'header.php';
+?>
+<h1>Välkommen till bloggen</h1>
+<?php
+require_once 'read.php';
+require_once 'footer.php'; 
 ?>
