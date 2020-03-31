@@ -1,19 +1,24 @@
 <?php
 
-require_once '../header-admin.php';
+  require_once '../header-admin.php';
+  // Logga in i databasen
+  require_once '../db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'):
   
   // Lägg till htmlspecialchars för att rensa HTML
   $heading = htmlspecialchars($_POST['heading']);
-  $content = htmlspecialchars($_POST['content']);
-  $map = htmlspecialchars($_POST['map']);
-  $video = htmlspecialchars($_POST['video']);
   $image = htmlspecialchars(basename( $_FILES["image"]["name"]));
+  $content = htmlspecialchars($_POST['content']);
+  $map = htmlentities($_POST['map']);
+  $video = htmlspecialchars($_POST['video']);
   $publish = htmlspecialchars($_POST['publish']);
+  if( $publish == 'publish' ){
+    $publish = "Publicerat";
+  } else {
+    $publish = "Opublicerat";
+  }
 
-  // Logga in i databasen
-  require_once '../db.php';
 
   // Förbered en SQL-sats
   $sql = "INSERT INTO blog (heading,content,image,map, video,publish) 
@@ -43,6 +48,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 echo "<br>
 <div class='card'>
 <div class='card-body'>
+    <p class='text-muted'>$publish</p>
   <h2>$heading</h2>
   <img src='../images/$target_file' alt='$image' width='200px'>
   <p>$content</p>
@@ -56,7 +62,6 @@ echo "<br>
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if($check !== false) {
-        // echo "Det här är en bild - " . $check["mime"] . ".<br>";
         echo "<img src='../images/$target_file' alt='' width='200px'><br>";
         $uploadOk = 1;
     } else {
@@ -67,7 +72,7 @@ if(isset($_POST["submit"])) {
 
 // Check if file already exists
 if (file_exists($target_file)) {
-    echo "Tyvärr, den här filen finns redan.<br>";
+    echo "Den här bilden fanns redan.<br>";
     $uploadOk = 0;
 }
 // Check file size
@@ -83,7 +88,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    echo "Tyvärr, filen gick inte att ladda upp.";
+    echo "Filen gick inte att ladda upp.";
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {

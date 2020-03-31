@@ -8,7 +8,7 @@
 **************************************** */
 ?>
 </main>
-<footer>
+<footer class="text-center">
   <p>
     &copy <?php echo date('Y'); ?>
   </p>

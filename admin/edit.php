@@ -33,6 +33,7 @@ if(empty($image)){
 
 <form   action="update.php?id=<?php echo $id;?>"       
         enctype="multipart/form-data"  
+        accept-charset="UTF-800"
         method="post" 
         class="row">
 
