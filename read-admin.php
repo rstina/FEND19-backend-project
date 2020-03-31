@@ -35,8 +35,10 @@
     $publish = ($row['publish']);
     if( $publish == 'publish' ){
       $publishtext = "Publicerad";
+      $unpublish = '<p><a href="unpublish-update.php?id='.$id.'" class="btn btn-sm btn-danger">Avpublicera</a>';
     } else {
       $publishtext = "Opublicerad";
+      $unpublish = '<a href="publish-update.php?id=$id" class="btn btn-sm btn-success">Publicera</a>';
     }
     // echo "<pre>";
     // print_r($row);
@@ -49,8 +51,7 @@
       <div class='card'>
         <div class='card-body'>
           <p class='text-muted'>$publishtext</p>
-          <a href='publish-update.php?id=$id' class='btn btn-sm btn-danger'>Publicera</a>
-          <a href='unpublish-update.php?id=$id' class='btn btn-sm btn-danger'>Avpublicera</a>
+          $unpublish
           <h2>$heading</h2>
           <img src='../images/$image' alt='$image' width='200px'>
           <p>$content</p>

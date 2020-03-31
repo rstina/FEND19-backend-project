@@ -1,6 +1,5 @@
 <?php
-include_once '../db.php';
-
+require_once '../db.php';
 
 $id = htmlentities($_GET['id']);
 $heading = htmlspecialchars($_POST['heading']);
