@@ -25,14 +25,13 @@
     $content = htmlspecialchars($row['content']);
     $date = htmlspecialchars($row['date']);
     $map = $row['map'];
-    $video = ($row['video']);
+    $video = $row['video'];
 
     if(!empty($video)){
-      $videotext = '<iframe width="560" height="315" src="'.$video.'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+      $videotext = $video;
     } else {
       $videotext = '';
     }
-
     $publish = ($row['publish']);
     if( $publish == 'publish' ){
       $publishtext = "Publicerad";
@@ -61,8 +60,6 @@
       </div>
     </div>
     "; 
-    https://www.youtube.com/embed/Lw6MFUbvHog" 
-    // map: <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8138.025369269233!2d18.0585157!3d59.3411953!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2ac59352bbc3fc9a!2sW%C3%A4ng%20Izakaya!5e0!3m2!1ssv!2sse!4v1585325364041!5m2!1ssv!2sse" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
   // avsluta while loop
   endwhile;

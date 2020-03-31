@@ -29,6 +29,8 @@ if(empty($image)){
     <img src='../images/$image' alt='' width='200px'><br>";
 }
 
+
+
 ?>
 
 <form   action="update.php?id=<?php echo $id;?>"       
@@ -61,7 +63,7 @@ if(empty($image)){
                 type="text" 
                 class="form-control" 
                 placeholder="Klistra in länken till karta"
-                value="<?php echo $map ?>">
+                value='<?php echo $map ?>'>
     </div>   
         
     <br>
@@ -70,7 +72,7 @@ if(empty($image)){
                 type="text" 
                 class="form-control" 
                 placeholder="Klistra in länken till video" 
-                value="<?php echo $video ?>">
+                value='<?php echo $video ?>'>
     </div>
     
     <br>

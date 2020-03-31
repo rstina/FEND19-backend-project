@@ -29,7 +29,7 @@
 
 
       if(!empty($video)){
-        $videotext = '<iframe width="560" height="315" src="'.$video.'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        $videotext = $video;
       } else {
         $videotext = '';
       }

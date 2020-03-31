@@ -13,12 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'):
   $map = ($_POST['map']);
   $video = ($_POST['video']);
   $publish = htmlspecialchars($_POST['publish']);
-  if( $publish == 'publish' ){
-    $publish = "Publicerat";
-  } else {
-    $publish = "Opublicerat";
-  }
-
 
   // Förbered en SQL-sats
   $sql = "INSERT INTO blog (heading,content,image,map, video,publish) 
