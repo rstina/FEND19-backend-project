@@ -33,6 +33,11 @@
       } else {
         $videotext = '';
       }
+      if(!empty($map)){
+        $maptext = $map;
+      } else {
+        $maptext = '';
+      }
       
       $publish = htmlspecialchars($row['publish']);
 
@@ -45,7 +50,8 @@
             <h2>$heading</h2>
             <img src='images/$image' alt='$image' width='200px'>
             <p>$content</p>
-            $videotext
+            <p>$videotext</p>
+            <p>$maptext</p>
             <p>$date</p>
           </div>
         </div>

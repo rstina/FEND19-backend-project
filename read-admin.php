@@ -22,7 +22,7 @@
     $id = htmlspecialchars($row['id']); // $row = array
     $heading = htmlspecialchars($row['heading']);
     $image = htmlspecialchars($row['image']);
-    $content = htmlspecialchars($row['content']);
+    $content = htmlentities($row['content']);
     $date = htmlspecialchars($row['date']);
     $map = $row['map'];
     $video = $row['video'];
@@ -32,6 +32,13 @@
     } else {
       $videotext = '';
     }
+
+    if(!empty($map)){
+      $maptext = $map;
+    } else {
+      $maptext = '';
+    }
+
     $publish = ($row['publish']);
     if( $publish == 'publish' ){
       $publishtext = "Publicerad";
@@ -55,7 +62,8 @@
           <h2>$heading</h2>
           <img src='../images/$image' alt='$image' width='200px'>
           <p>$content</p>
-          $videotext
+          <p>$videotext</p>
+          <p>$maptext</p>
           <p>$date</p>
           <a href='edit.php?id=$id' class='btn btn-sm btn-info'>Redigera</a>
           <a href='delete.php?id=$id' class='btn btn-sm btn-warning'>Ta bort</a>

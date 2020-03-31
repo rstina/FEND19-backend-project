@@ -14,7 +14,7 @@
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
   $heading = htmlspecialchars($row['heading']);
-  $content = htmlspecialchars($row['content']);
+  $content = htmlentities($row['content']);
   $map = ($row['map']);
   $video = ($row['video']);
   $image = htmlspecialchars($row['image']);
