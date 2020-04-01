@@ -50,7 +50,7 @@
         <div class='card'>
           <div class='card-body'>
             <h2>$heading</h2>
-            <img src='images/$image' alt='$image' width='200px'>
+            <img src='images/$image' class='img-fluid' alt='$image'>
             <p>$content_replace_br</p>
             <p>$videotext</p>
             <p>$maptext</p>

@@ -58,7 +58,7 @@ echo "<br>
 <div class='card-body'>
     <p class='text-muted'>$publishtext</p>
   <h2>$heading</h2>
-  <img src='../images/$target_file' alt='$image' width='200px'>
+  <img src='../images/$target_file' class='img-fluid' alt='$image'>
   <p>$content_replace_br</p>
   $map
   <p>$video</p>
@@ -70,7 +70,7 @@ echo "<br>
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if($check !== false) {
-        echo "<img src='../images/$target_file' alt='' width='200px'><br>";
+        echo "<img src='../images/$target_file' class='img-fluid' alt='$image'><br>";
         $uploadOk = 1;
     } else {
         echo "Det här är ingen bild.<br>";

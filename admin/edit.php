@@ -78,7 +78,7 @@ if(empty($image)){
         <input  name="map" 
                 type="text" 
                 class="form-control" 
-                placeholder="Klistra in länken till karta"
+                placeholder="Bädda in karta"
                 value='<?php echo $map ?>'>
     </div>   
         
@@ -87,7 +87,7 @@ if(empty($image)){
         <input  name="video" 
                 type="text" 
                 class="form-control" 
-                placeholder="Klistra in länken till video" 
+                placeholder="Bädda in video" 
                 value='<?php echo $video ?>'>
     </div>
     

@@ -13,7 +13,7 @@ $publish = "publish";
 
 $sql = "UPDATE blog
 SET 
-publish = '$publish'
+publish = '$publish', date = CURRENT_TIMESTAMP
 WHERE id = $id;";
 
 $stmt = $db->prepare($sql);
